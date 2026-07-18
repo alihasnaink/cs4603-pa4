@@ -51,5 +51,4 @@ jobs:
           VECTOR_SEARCH_INDEX: ${{ secrets.VECTOR_SEARCH_INDEX }}
           USER: ${{ secrets.USER }}
           SERVING_ENDPOINT_NAME: ${{ secrets.SERVING_ENDPOINT_NAME }}
-          USER: ${{ secrets.USER }}
         run: uv run python deployment/deploy.py
