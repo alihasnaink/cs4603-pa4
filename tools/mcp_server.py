@@ -12,6 +12,7 @@ Run standalone (for a quick smoke test):
 
 Your agent connects to it programmatically via `langchain-mcp-adapters`
 (see agent/graph.py). The five tools below match PA4 Task 0.2.
+__
 """
 
 from __future__ import annotations
