@@ -1,0 +1,15 @@
+channels:
+- conda-forge
+dependencies:
+- python=3.12.13
+- pip
+- pip:
+  - mlflow
+  - langgraph
+  - langchain-openai
+  - databricks-langchain
+  - databricks-vectorsearch
+  - langchain-mcp-adapters
+  - mcp
+  - openai
+name: mlflow-env

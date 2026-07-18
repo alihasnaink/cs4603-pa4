@@ -11,7 +11,22 @@ Must import cleanly:  python -c "import deployment.agent_model"
 
 from __future__ import annotations
 
-# TODO: import os, mlflow, build_graph, get_chat_llm, get_retriever, load_mcp_tools
-# TODO: validate env vars
-# TODO: graph = build_graph(...)
-# TODO: mlflow.models.set_model(graph)
+import os
+import mlflow
+
+from config import get_settings
+
+# Validate env vars at import time (will raise OSError if missing)
+get_settings()
+
+from agent.graph import build_graph, load_mcp_tools
+from config import get_chat_llm
+from rag.store import get_retriever
+
+tools_list = load_mcp_tools()
+
+# Build the graph
+graph = build_graph(llm=get_chat_llm(), retriever=get_retriever(), tools=tools_list)
+
+# Tell MLflow what to serve
+mlflow.models.set_model(graph)
